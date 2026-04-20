@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Setup Pages
@@ -34,10 +34,7 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        run: npx next build
-
-      - name: Export static files
-        run: npx next export
+        run: npx next build --webpack
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
